@@ -1,6 +1,7 @@
 class NovelListsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_novel_list, only: [:show, :edit, :update, :destroy]
+  before_action :is_mine, only: [:edit, :update, :destroy]
 
   def index
     @novel_lists = NovelList.all.order(created_at: :desc)
@@ -43,8 +44,6 @@ class NovelListsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /novel_lists/1
-  # PATCH/PUT /novel_lists/1.json
   def update
     respond_to do |format|
       if @novel_list.update(novel_list_params)
@@ -57,8 +56,6 @@ class NovelListsController < ApplicationController
     end
   end
 
-  # DELETE /novel_lists/1
-  # DELETE /novel_lists/1.json
   def destroy
     @novel_list.destroy
     respond_to do |format|
@@ -68,13 +65,17 @@ class NovelListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_novel_list
       @novel_list = NovelList.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def novel_list_params
       params.require(:novel_list).permit(:title)
+    end
+
+    def is_mine
+      if @novel_list.user_id != current_user.id
+        redirect_back(fallback_location: root_path) and return
+      end
     end
 end

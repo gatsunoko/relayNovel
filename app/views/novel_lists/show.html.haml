@@ -16,7 +16,10 @@
                 %p
                   = simple_format(novel.text)
                 - if user_signed_in? && @novel_list.user_id == current_user.id
-                  = link_to '選ぶ', selected_novel_path(novel.id)
+                  %p
+                    = link_to '選ぶ', selected_novel_path(novel.id), data: { confirm: "これを選んでいいですか？" }
+                  %p
+                    = link_to '削除', novel_path(novel.id), method: :delete, data: { confirm: "削除してよろしいですか？" }
         .swiper-pagination
         .swiper-button-prev
         .swiper-button-next

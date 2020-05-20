@@ -2,6 +2,7 @@ class NovelsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :selected]
   before_action :set_novel, only: [:show, :edit, :update, :destroy, :selected]
   before_action :list_is_mine, only: [:selected]
+  before_action :is_mine, only: [:edit, :update, :destroy]
 
   def index
     @novels = Novel.all
@@ -54,9 +55,10 @@ class NovelsController < ApplicationController
   end
 
   def destroy
+    novel_list = @novel.novel_list.id
     @novel.destroy
     respond_to do |format|
-      format.html { redirect_to novels_url, notice: 'Novel was successfully destroyed.' }
+      format.html { redirect_to novel_list_path(novel_list), notice: 'Novel was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +77,12 @@ class NovelsController < ApplicationController
 
     def novel_params
       params.require(:novel).permit(:text, :novel_list_id)
+    end
+
+    def is_mine
+      if @novel.user_id != current_user.id && @novel.novel_list.user_id != current_user.id
+        redirect_back(fallback_location: root_path) and return
+      end
     end
 
     def list_is_mine
