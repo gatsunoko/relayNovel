@@ -1,0 +1,13 @@
+.novel_list_index
+  %h1.text-center
+    小説一覧
+  .novels.m-0-auto
+    .row
+      - @novel_lists.each do |novel_list|
+        .novel.col-xs-12.col-md-6
+          = link_to novel_list do
+            = novel_list.title
+          / %td= link_to 'Edit', edit_novel_list_path(novel_list)
+          / %td= link_to 'Destroy', novel_list, method: :delete, data: { confirm: 'Are you sure?' }
+  %br
+  = link_to 'New Novel list', new_novel_list_path

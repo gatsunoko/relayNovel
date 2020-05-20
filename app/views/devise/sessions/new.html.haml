@@ -1,0 +1,9 @@
+%h2 ログイン
+.field.col-12.my-3
+  = link_to(user_google_omniauth_authorize_path, class: 'google_signed_link') do
+    %table{border: "0", width: "100%"}
+      %tr
+        %th
+          %span.google_icon
+        %th
+          %p Googleで登録/ログイン

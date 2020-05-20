@@ -1,0 +1,16 @@
+= form_for @novel_list do |f|
+  - if @novel_list.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@novel_list.errors.count, "error")} prohibited this novel_list from being saved:"
+      %ul
+        - @novel_list.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title, class: 'form-control col-xs-12 col-sm-10 col-md-10 col-lg-8'
+  .field
+    = f.fields_for  :novels, wrapper_tag: :div, wrapper_options: { class: 'row field form-group' } do |q|
+      = q.text_area :text, class: 'form-control col-xs-12 col-sm-10 col-md-10 col-lg-8'
+  .actions
+    = f.submit 'Save'

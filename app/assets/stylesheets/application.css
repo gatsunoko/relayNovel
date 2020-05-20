@@ -1,0 +1,56 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require reset.css
+ *= require_tree .
+ *= require_self
+ */
+.m-0-auto {
+  margin: 0 auto;
+}
+.google_signed_link {
+  padding: 4px;
+  margin: 0 auto;
+  height: 60px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid black;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    line-height: 100%;
+    display: inline;
+    padding-left: 10px;
+  }
+}
+.google_signed_link {
+  width: 90%;
+  max-width: 350px;
+  background-color: white;
+  color: black;
+}
+.google_icon {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAdTAAAOpgAAA6lwAAF2+XqZnUAAACHFBMVEX////86Ob2s67xioHtZlvsVkrqSTzqSz3sXFDubmPxhHv3t7L97ev3vrnvcmfqQzXua2D4w775zMjtZVruaF35zsr++fnyk4v0npf+/f398fDual7wfXP97u3tZFj5zMn++vrubWLyj4fuaV70oJn4yMT62db62NX0opvubGH50M361NH9/PvtY1Tzm5T+/PvzmZL967T0jxbqRzP80lj7vAX3pQ3sUy7++u/7vgz6tAfvaCbrT0L98/P95Jz6uwXyghvqRDT0pJ381GH2oiL+9vXL3fzN3vz7yDX80FBChfT6/P77wRr93YPq8f37vQv945rZ5vzO3/zc6P3u9P7XwDP1+vZ8qvdnnPZEhvT9/v6dsik2qFKd1ayXvPhblfX6vQzvuglwrjs0qFNBrV7z+fT7/P5ZlPWRuPj2z1PXuBNPqkiGy5mwzPrI3Pvx5amxtCE7qFCR0KLb6PxJifT5+/77/PtXt3GT0KP9/v3T4vxSj/TM6dRhu3nR69jg8uWEypdCnZpBhfBNjPTx9v5duXaZ06jE5c3W7dzQ69e138CZ06lwwYY1qFQ3n3hAiOOmxvn6/Po1pGE+jcxxo/bt9/A0p1Q7lapgmPXz9/7w+PJeunZXq5rn7/35/PqKzZzI59BZuHJEr2Gn2bS44MNmvX5Lsmel2LL3+/jm9Oqt3LqByZRauHNJsWU7q1lNsmh0w4mm2bTe8eP////leMNTAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAHdElNRQfiChoRNDv1iWznAAABn0lEQVQ4y2NgQAKMTMwsrGzsHJxc3DwM2AEvHz8SEBDEokRImB8NiIiiKRET58cCJCSR1UhJ82MFMkhqZOWwq2GTR6hRUCSshkEJIa6soqqmrqqhiaFGC65EURsmpq2IqkZHF6ZGD8kz+gbIahgMjYwhagwYcAMTUzNzkBolPGosLE1Nraz5+W1s8SiyMwUCewdHJzxqGJxNwcDFFS7ihgbcGRg8IIo8Edq80IE3gw9EkS8eRX4M/hBFAXgUBRKjKIgY64KJcXgILAhCw+CKwmEgAqImMgoamNExsZhBGAdRFA+MlgRT08Sk5OSUVHQ1aekQRRlAdqZpVnYyEOSgK8qFOikPyM4vKEwGgyJUNcUlEDUlpUBOWXkyFFRUIqmpqoYaFAfm1sAUJdfWwZTUNzQ2QdQ0t0BEcuCqklvb2js6u7p7epOT+/rBiiZAtU2sTcYGJk0GqpniDTN8ajlWVdOme82YiXDlrNlYVSXPmYvs33nzsanpmYUWdAsWoitZtBgzpiqXLEVWsmz5CuyZYuWq1WvWrlu3fvaGjZuQxQECu8vlRp12UQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOC0xMC0yN1QwMDo1Mjo1OS0wNzowMGzMxlcAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTgtMTAtMjdUMDA6NTI6NTktMDc6MDAdkX7rAAAAAElFTkSuQmCC");
+  display: inline-block;
+  background-size: contain;
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+}

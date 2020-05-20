@@ -1,0 +1,45 @@
+.novel_list_show
+  %h1.text-center
+    = @novel_list.title
+  .novels.m-0-auto
+    .selected
+      - @novel_list.novels.where(selected: true).order(number: :asc).each do |novel|
+        .novel
+          %p
+            = simple_format(novel.text)
+    - if @latest
+      .swiper-container
+        .swiper-wrapper
+          - @novel_list.novels.where(selected: false).where(number: @max_number).each do |novel|
+            .swiper-slide
+              .novel
+                %p
+                  = simple_format(novel.text)
+                - if user_signed_in? && @novel_list.user_id == current_user.id
+                  = link_to '選ぶ', selected_novel_path(novel.id)
+        .swiper-pagination
+        .swiper-button-prev
+        .swiper-button-next
+  = link_to '続きを書く', new_novel_path(novel_list_id: @novel_list.id)
+:javascript
+  $(document).ready(function () {
+    //initialize swiper when document ready
+    var mySwiper = new Swiper ('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      }
+    })
+  });
+:css
+  .swiper-container {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+  }
