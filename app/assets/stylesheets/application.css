@@ -17,6 +17,10 @@
 textarea {
   min-height: 200px;
 }
+#characnt {
+  border: none;
+  background-color: rgba(0, 0, 0, 0)
+}
 .m-0-auto {
   margin: 0 auto;
 }
