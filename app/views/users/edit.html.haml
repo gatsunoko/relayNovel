@@ -1,0 +1,15 @@
+.user_edit
+  = form_with(model: @user, local: true) do |form|
+    - if @user.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@user.errors.count, "")
+          個のエラーにより保存できませんでした。
+        %ul
+          - @user.errors.full_messages.each do |message|
+            %li= message
+    .form-group
+      = form.label :name
+      = form.text_field :name, class: 'form-control col-sm-6 col-md-4', placeholder: 'ユーザー名'
+    .actions
+      = form.submit '名前変更', class: 'btn btn-primary btn-lg'

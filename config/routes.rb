@@ -5,6 +5,7 @@ Rails.application.routes.draw do
                                     confirmations: 'users/confirmations',
                                     sessions: "users/sessions",
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
+  resources :users, :only => [:show, :edit, :update]
   resources :novels do
     member do
       get :selected

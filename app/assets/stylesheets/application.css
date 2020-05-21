@@ -24,6 +24,13 @@ textarea {
 .m-0-auto {
   margin: 0 auto;
 }
+.mypage {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAdTAAAOpgAAA6lwAAF2+XqZnUAAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiAxMBGhLQAnMsAAAAcUlEQVQ4y9WUwQ7AIAhDR+P//zI77DCMNCvbEtWb0CeCoPnxfuEDOxFuzGGhGG6lyOZ89wCP4hyHgjIrNDT3bPrOC8GsmzIPFBGzQhPmB5KcezFLxab9JN08a9e4k0AVjTpU0aj9o8OqRb/0Cw3GHvAJTkAcPWZOH6kAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDMtMTlUMDE6MjY6MTgtMDc6MDAGnr+lAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE4LTAzLTE5VDAxOjI2OjE4LTA3OjAwd8MHGQAAAABJRU5ErkJggg==");
+  display: inline-block;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+}
 .google_signed_link {
   padding: 4px;
   margin: 0 auto;

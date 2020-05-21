@@ -9,6 +9,10 @@
           .novel
             %p
               = simple_format(novel.text)
+              .user
+                = image_tag novel.user.image
+                %p
+                  = novel.user.name
   - if @latest
     .new_area
       .swiper-container
@@ -18,9 +22,14 @@
               .novel
                 %p
                   = simple_format(novel.text)
+                .user
+                  = image_tag novel.user.image
+                  %p
+                    = novel.user.name
                 - if user_signed_in? && @novel_list.user_id == current_user.id
-                  = link_to '選ぶ', selected_novel_path(novel.id), data: { confirm: "これを選んでいいですか？" }, class: 'btn btn-success'
-                  = link_to '削除', novel_path(novel.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: 'btn btn-danger'
+                  .text-right
+                    = link_to '選ぶ', selected_novel_path(novel.id), data: { confirm: "これを選んでいいですか？" }, class: 'btn btn-success'
+                    = link_to '削除', novel_path(novel.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: 'btn btn-danger'
         .swiper-pagination
         .swiper-button-prev
         .swiper-button-next
@@ -39,12 +48,12 @@
       },
       pagination: {
         el: '.swiper-pagination',
-      }
+      },
     })
   });
 :css
   .swiper-container {
     width: 100%;
     max-width: 600px;
-    height: 300px;
+    minheight: 300px;
   }
