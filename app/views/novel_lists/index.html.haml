@@ -9,5 +9,5 @@
             = novel_list.title
           / %td= link_to 'Edit', edit_novel_list_path(novel_list)
           / %td= link_to 'Destroy', novel_list, method: :delete, data: { confirm: 'Are you sure?' }
-  %br
-  = link_to 'New Novel list', new_novel_list_path
+  .text-right
+    = link_to 'タイトル登録', new_novel_list_path, class: 'btn btn-primary'

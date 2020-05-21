@@ -5,7 +5,6 @@
       %ul
         - @novel_list.errors.full_messages.each do |message|
           %li= message
-
   .field
     = f.label 'タイトル'
     = f.text_field :title, class: 'form-control col-xs-12 col-sm-10 col-md-10 col-lg-8'
@@ -14,5 +13,5 @@
     = f.fields_for  :novels, wrapper_tag: :div, wrapper_options: { class: 'row field form-group' } do |q|
       = q.text_area :text, class: 'form-control col-xs-12 col-sm-10 col-md-10 col-lg-8', onkeyup: "document.getElementById('characnt').value=200 - this.value.length"
       %input{type:"text", id: "characnt", disabled: "disabled"}
-  .actions
-    = f.submit 'Save'
+  .actions.text-right.col-xs-12.col-sm-10.col-md-10.col-lg-8
+    = f.submit '登録', class: 'btn btn-primary'

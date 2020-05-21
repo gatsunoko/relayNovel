@@ -1,13 +1,16 @@
+</div>
 .novel_list_show
-  %h1.text-center
-    = @novel_list.title
-  .novels.m-0-auto
-    .selected
-      - @novel_list.novels.where(selected: true).order(number: :asc).each do |novel|
-        .novel
-          %p
-            = simple_format(novel.text)
-    - if @latest
+  .container
+    %h1.text-center
+      = @novel_list.title
+    .novels.m-0-auto
+      .selected
+        - @novel_list.novels.where(selected: true).order(number: :asc).each do |novel|
+          .novel
+            %p
+              = simple_format(novel.text)
+  - if @latest
+    .new_area
       .swiper-container
         .swiper-wrapper
           - @novel_list.novels.where(selected: false).where(number: @max_number).each do |novel|
@@ -16,14 +19,13 @@
                 %p
                   = simple_format(novel.text)
                 - if user_signed_in? && @novel_list.user_id == current_user.id
-                  %p
-                    = link_to '選ぶ', selected_novel_path(novel.id), data: { confirm: "これを選んでいいですか？" }
-                  %p
-                    = link_to '削除', novel_path(novel.id), method: :delete, data: { confirm: "削除してよろしいですか？" }
+                  = link_to '選ぶ', selected_novel_path(novel.id), data: { confirm: "これを選んでいいですか？" }, class: 'btn btn-success'
+                  = link_to '削除', novel_path(novel.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: 'btn btn-danger'
         .swiper-pagination
         .swiper-button-prev
         .swiper-button-next
-  = link_to '続きを書く', new_novel_path(novel_list_id: @novel_list.id)
+  .container.text-right
+    = link_to '続きを書く', new_novel_path(novel_list_id: @novel_list.id), class: 'btn btn-primary'
 :javascript
   $(document).ready(function () {
     //initialize swiper when document ready

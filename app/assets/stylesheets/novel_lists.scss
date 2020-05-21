@@ -17,13 +17,18 @@
   .novels {
     width: 100%;
     max-width: 600px;
+    .novel {
+      padding: 15px;
+    }
+  }
+  .new_area {
     .swiper-slide {
       background-color: pink;
-    }
-    .novel {
-      padding: 15px 50px;
-      border-radius: 15px;
-      margin-bottom: 15px;
+      .novel {
+        padding: 15px 50px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+      }
     }
   }
 }
