@@ -1,32 +1,48 @@
 // Place all the styles related to the NovelLists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/* 共通 */
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+  }
+  p {
+    color: gray;
+    font-size: 14px;
+    padding: 0 15px;
+    margin: 0;
+  }
+}
 /* index */
 .novel_list_index {
   .novels {
     max-width: 600px;
     .novel {
+      width: 100%;
       padding: 15px;
       border-bottom: 1px solid black;
+      .title {
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .text {
+        p {
+          font-size: 14px;
+          color: gray;
+        }
+      }
     }
   }
 }
 
 /* show */
 .novel_list_show {
-  .user {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
-    }
-    p {
-      padding: 0 15px;
-    }
-  }
   .novels {
     width: 100%;
     max-width: 600px;
@@ -35,13 +51,18 @@
     }
   }
   .new_area {
-    .swiper-slide {
-      background-color: pink;
+    margin-bottom: 15px;
+    .swiper-container {
+      background-color: #e4f1ff;
       .novel {
         padding: 15px 50px;
         border-radius: 15px;
         margin-bottom: 15px;
       }
     }
+  }
+  .form_area {
+    padding: 15px;
+    max-width: 600px;
   }
 }

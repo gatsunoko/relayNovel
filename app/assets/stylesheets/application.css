@@ -14,6 +14,22 @@
  *= require_tree .
  *= require_self
  */
+html,body{
+  height: 100%;
+}
+/*縦幅が足りなくてもフッターを一番下に表示するCSS*/
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer {
+  width: 100%;
+  height: 300px;
+  background-color: gray;
+  margin-top: auto;
+}
+/*基本*/
 textarea {
   min-height: 200px;
 }

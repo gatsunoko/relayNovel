@@ -13,6 +13,8 @@
                 = image_tag novel.user.image
                 %p
                   = novel.user.name
+  .container.form_area.text-center
+    = link_to '続きを書く', new_novel_path(novel_list_id: @novel_list.id), class: 'btn btn-primary'
   - if @latest
     .new_area
       .swiper-container
@@ -33,8 +35,6 @@
         .swiper-pagination
         .swiper-button-prev
         .swiper-button-next
-  .container.text-right
-    = link_to '続きを書く', new_novel_path(novel_list_id: @novel_list.id), class: 'btn btn-primary'
 :javascript
   $(document).ready(function () {
     //initialize swiper when document ready
@@ -48,6 +48,10 @@
       },
       pagination: {
         el: '.swiper-pagination',
+        type: 'fraction',
+        renderFraction: function (currentClass, totalClass) {
+          return '<span class="' + currentClass + '"></span>' + ' / ' + '<span class="' + totalClass + '"></span>';
+        }
       },
     })
   });
@@ -57,3 +61,5 @@
     max-width: 600px;
     minheight: 300px;
   }
+
+%script{:src => "https://unpkg.com/swiper/js/swiper.min.js"}

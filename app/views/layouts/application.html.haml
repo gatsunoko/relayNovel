@@ -35,6 +35,7 @@
           - else
             %li.nav-item
               = link_to 'ログイン', new_user_session_path, class: 'nav-link'
-    .container
-      = yield
-    %script{:src => "https://unpkg.com/swiper/js/swiper.min.js"}
+    .wrapper
+      .container
+        = yield
+      .footer
