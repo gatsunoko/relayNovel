@@ -1,0 +1,23 @@
+- if user_signed_in?
+  .like.text-center{:id => "like_area#{novel.id.to_s}"}
+    - if novel.like_user(current_user.id)
+      = link_to like_novel_path(id: novel.id), remote: true do
+        .heart
+      %span{:id => "like_users_display#{novel.id}"}
+        - if novel.likes_count > 0
+          %p.likes_count
+            いいね#{novel.likes_count}件
+    - else
+      = link_to like_novel_path(id: novel.id), remote: true do
+        .heart_empty
+      %span{:id => "like_users_display#{novel.id}"}
+        - if novel.likes_count > 0
+          %p.likes_count
+            いいね#{novel.likes_count}件
+- else
+  .like.text-center{:id => "like_area#{novel.id.to_s}"}
+    .heart_empty
+    %span{:id => "like_users_display#{novel.id}"}
+      - if novel.likes_count > 0
+        %p.likes_count
+          いいね#{novel.likes_count}件

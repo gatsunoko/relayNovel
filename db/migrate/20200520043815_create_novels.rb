@@ -6,6 +6,7 @@ class CreateNovels < ActiveRecord::Migration[6.0]
       t.integer :novel_list_id
       t.boolean :selected, null: false, default: false
       t.integer :number
+      t.integer :likes_count, default: 0, null: false
 
       t.timestamps
     end

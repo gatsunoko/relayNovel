@@ -24,6 +24,7 @@
               .novel
                 %p
                   = simple_format(novel.text)
+                = render 'novels/like', novel: novel
                 .user
                   = image_tag novel.user.image
                   %p
@@ -41,7 +42,7 @@
     var mySwiper = new Swiper ('.swiper-container', {
       // Optional parameters
       direction: 'horizontal',
-      loop: true,
+      loop: false,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',

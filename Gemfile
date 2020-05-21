@@ -32,6 +32,7 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 gem 'omniauth', '~> 1.9'
 gem 'omniauth-google-oauth2', '~> 0.8.0'
+gem 'counter_culture', '~> 1.8'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

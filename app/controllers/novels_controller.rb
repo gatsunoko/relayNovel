@@ -1,5 +1,5 @@
 class NovelsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :selected]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :selected, :like]
   before_action :set_novel, only: [:show, :edit, :update, :destroy, :selected]
   before_action :list_is_mine, only: [:selected]
   before_action :is_mine, only: [:edit, :update, :destroy]
@@ -68,6 +68,16 @@ class NovelsController < ApplicationController
       @novel.update(selected: true)
     end
     redirect_to novel_list_path(@novel.novel_list)
+  end
+
+  def like
+    if NovelLike.where('user_id = ? AND novel_id = ?', current_user.id, params[:id]).count == 0
+      NovelLike.create(user_id: current_user.id, novel_id: params[:id])
+    else
+      like = NovelLike.where('user_id = ? AND novel_id = ?', current_user.id, params[:id])
+      like.destroy_all
+    end
+    @novel = Novel.find params[:id]
   end
 
   private

@@ -1,6 +1,7 @@
 class Novel < ApplicationRecord
   belongs_to :novel_list
   belongs_to :user
+  has_many :likes, class_name: 'NovelLike', dependent: :destroy
 
   validates :text, presence: true
   validate :text_length
@@ -10,5 +11,9 @@ class Novel < ApplicationRecord
     if content_for_validation.length > 200
       errors.add(:text, "は200文字以内で入力してください。")
     end
+  end
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
   end
 end
