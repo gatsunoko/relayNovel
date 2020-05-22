@@ -10,6 +10,11 @@
               = novel_list.title
             .text
               = simple_format(novel_list.novels.order(number: :asc).first.text.truncate(100))
+            .count
+              %p
+                現在
+                = novel_list.novels.where(selected: true).count
+                件
             .user
               = image_tag novel_list.user.image
               %p{class: 'name'}
