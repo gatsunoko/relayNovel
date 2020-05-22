@@ -8,7 +8,7 @@
         - @novel_list.novels.where(selected: true).order(number: :asc).each do |novel|
           .novel
             %p
-              = simple_format(novel.text)
+              = simple_format(sanitize(novel.text, tags: %w(p br)))
               .user
                 = image_tag novel.user.image
                 %p
@@ -33,7 +33,7 @@
             .swiper-slide
               .novel
                 %p
-                  = simple_format(novel.text)
+                  = simple_format(sanitize(novel.text, tags: %w(p br)))
                 = render 'novels/like', novel: novel
                 .user
                   = image_tag novel.user.image
