@@ -13,7 +13,7 @@ class User < ApplicationRecord
                          uid:      auth.uid,
                          token:    auth.credentials.token,
                          password: Devise.friendly_token[0, 20],
-                         name: 'ニックネーム未設定')
+                         name: auth.info.name)
     end
     user
   end

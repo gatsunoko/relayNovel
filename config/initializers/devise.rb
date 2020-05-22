@@ -9,7 +9,7 @@ Devise.setup do |config|
                   ENV['GOOGLE_APP_ID'],
                   ENV['GOOGLE_APP_SECRET'],
                   name: :google,
-                  scope: %w(email),
+                  scope: %w(profile),
                   redirect_uri: "#{ENV['SITE_URL']}/users/auth/google/callback",
                   skip_jwt: true
   # The secret key used by Devise. Devise uses this key to generate
