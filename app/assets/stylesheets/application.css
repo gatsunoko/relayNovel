@@ -39,6 +39,9 @@ html,body{
   transition: .3s;
   z-index: 9000;
 }
+#contents {
+  padding-top: 56px;
+}
 @media screen and (min-width: 992px){
   #navbar {
     max-height: 56px !important;
