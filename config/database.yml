@@ -49,6 +49,13 @@ test:
 #
 production:
   <<: *default
-  database: relayNovel_production
-  username: relayNovel
   password: <%= ENV['RELAYNOVEL_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: 5
+  username: <%= ENV["USERNAME"] %>
+  password: <%= ENV["PASSWORD"] %>
+  host: <%= ENV["HOST"] %>
+  port: 3306
+  database: <%= ENV["DATABASE"] %>
+  socket: <%= ENV['MYSQL_SOCKET'] %>
