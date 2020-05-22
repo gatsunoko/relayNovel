@@ -4,7 +4,7 @@ class NovelListsController < ApplicationController
   before_action :is_mine, only: [:edit, :update, :destroy]
 
   def index
-    @novel_lists = NovelList.all.order(created_at: :desc)
+    @novel_lists = NovelList.all.includes(:novels).order('novels.updated_at desc')
   end
 
   def show
