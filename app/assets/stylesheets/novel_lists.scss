@@ -64,5 +64,9 @@
   .form_area {
     padding: 15px;
     max-width: 600px;
+    #form {
+      display: none;
+      width: 100%;
+    }
   }
 }

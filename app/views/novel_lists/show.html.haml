@@ -14,7 +14,17 @@
                 %p
                   = novel.user.name
   .container.form_area.text-center
-    = link_to '続きを書く', new_novel_path(novel_list_id: @novel_list.id), class: 'btn btn-primary'
+    #form
+      = form_with(url: novels_path, local: true, method: :post) do |form|
+        .field
+          = form.label 'テキスト'
+          = form.text_area 'novel[text]', class: 'form-control col-12', onkeyup: "document.getElementById('characnt').value=200 - this.value.length"
+          %input{type:"text", id: "characnt", disabled: "disabled"}
+        = form.hidden_field 'novel[novel_list_id]', value: @novel_list.id
+        .actions.text-right.col-xs-12.col-sm-10.col-md-10.col-lg-8
+        = form.submit '投稿', class: 'btn btn-primary'
+    %button{class: 'btn btn-primary', id: 'nextButton', onclick: 'nextClick()'}
+      続きを書く
   - if @latest
     .new_area
       .swiper-container
@@ -56,6 +66,11 @@
       },
     })
   });
+
+  function nextClick() {
+    $('#form').css('display','inline-block');
+    $('#nextButton').css('display','none');
+  }
 :css
   .swiper-container {
     width: 100%;
