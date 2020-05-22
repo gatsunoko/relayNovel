@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_140534) do
+ActiveRecord::Schema.define(version: 2020_05_22_132938) do
 
   create_table "novel_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "user_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_140534) do
   end
 
   create_table "novels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "text"
+    t.text "text"
     t.integer "user_id"
     t.integer "novel_list_id"
     t.boolean "selected", default: false, null: false
