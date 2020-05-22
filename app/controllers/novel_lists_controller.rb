@@ -8,6 +8,7 @@ class NovelListsController < ApplicationController
   end
 
   def show
+    impressionist(@novel_list, nil, unique: [:session_hash])
     @max_number = @novel_list.novels.maximum(:number)
     if @max_number == @novel_list.novels.where(selected: true).maximum(:number)
       @latest = false
