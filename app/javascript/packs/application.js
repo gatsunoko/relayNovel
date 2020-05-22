@@ -14,3 +14,20 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+//ナビバーを下にスクロールしたら消えて少しでも上にスクロールしたらだす
+$(window).on('load', function(){
+  var menuHeight = 56;
+  var startPos = 0;
+  $(window).scroll(function(){
+    var currentPos = $(this).scrollTop();
+    if (currentPos > startPos) {
+      if($(window).scrollTop() >= 200) {
+        $("#navbar").css("top", "-" + menuHeight + "px");
+      }
+    } else {
+      $("#navbar").css("top", 0 + "px");
+    }
+    startPos = currentPos;
+  });
+});

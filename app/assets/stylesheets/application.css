@@ -29,6 +29,28 @@ html,body{
   background-color: gray;
   margin-top: auto;
 }
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+/*  height: 56px;
+  max-height: 56px !important;*/
+  transition: .3s;
+  z-index: 9000;
+}
+@media screen and (min-width: 992px){
+  #navbar {
+    max-height: 56px !important;
+  }
+}
+/* デフォルトだとスマホサイズｄふぇハンバーガーメニュー開いたときスクロールできないのでできるようにする部分 */
+@media screen and (max-width: 991px) {
+  .navbar {
+    overflow: auto;
+    max-height: 95vh; // 必要に応じて
+  }
+}
 /*基本*/
 textarea {
   min-height: 200px;
