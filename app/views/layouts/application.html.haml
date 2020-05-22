@@ -29,7 +29,10 @@
           -if user_signed_in?
             %li.nav-item
               = link_to edit_user_path(current_user.id) do
-                .mypage
+                .user
+                  = image_tag current_user.image
+                  %p
+                    = current_user.name
             %li.nav-item
               = link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
           - else
