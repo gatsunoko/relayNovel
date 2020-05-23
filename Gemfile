@@ -34,6 +34,8 @@ gem 'omniauth', '~> 1.9'
 gem 'omniauth-google-oauth2', '~> 0.8.0'
 gem 'counter_culture', '~> 1.8'
 gem 'impressionist', '~> 2.0'
+gem 'aws-sdk-s3', '~> 1.66'
+gem 'image_processing', '~> 1.11'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

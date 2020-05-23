@@ -71,7 +71,7 @@ class NovelListsController < ApplicationController
     end
 
     def novel_list_params
-      params.require(:novel_list).permit(:title)
+      params.require(:novel_list).permit(:title, :thumbnail)
     end
 
     def is_mine

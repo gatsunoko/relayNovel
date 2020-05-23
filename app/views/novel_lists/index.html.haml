@@ -4,8 +4,11 @@
   .novels.m-0-auto
     .row
       - @novel_lists.each do |novel_list|
-        .novel
-          = link_to novel_list do
+        = link_to novel_list, class: 'novel' do
+          .thumbnail
+            - if novel_list.thumbnail.present?
+              = image_tag novel_list.thumbnail.variant(resize_to_limit: [200, 100])
+          .description
             %p.title
               = novel_list.title
             .text

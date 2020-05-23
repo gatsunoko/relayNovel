@@ -26,31 +26,41 @@
       width: 100%;
       padding: 15px;
       border-bottom: 1px solid black;
-      .title {
-        color: black;
-        font-size: 18px;
-        font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      .thumbnail {
+        flex-grow: auto;
+        margin-right: 15px;
       }
-      .text {
-        p {
-          font-size: 14px;
-          color: gray;
-        }
-      }
-      .count {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p.pv_count {
-          margin: 0;
+      .description {
+
+        flex-grow: 2;
+        .title {
           color: black;
-          font-size: 14px;
-        }
-        p.novel_count {
-          margin: 0;
-          color: black;
-          font-size: 14px;
+          font-size: 18px;
           font-weight: bold;
+        }
+        .text {
+          p {
+            font-size: 14px;
+            color: gray;
+          }
+        }
+        .count {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          p.pv_count {
+            margin: 0;
+            color: black;
+            font-size: 14px;
+          }
+          p.novel_count {
+            margin: 0;
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+          }
         }
       }
     }

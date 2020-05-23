@@ -3,6 +3,9 @@
   .container
     %h1.text-center
       = @novel_list.title
+    .thumbnail.text-center
+      - if @novel_list.thumbnail.present?
+        = image_tag @novel_list.thumbnail.variant(resize_to_limit: [500, 500])
     .novels.m-0-auto
       .selected
         - @novel_list.novels.where(selected: true).order(number: :asc).each do |novel|
