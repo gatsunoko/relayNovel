@@ -1,6 +1,8 @@
 .novel_list_index
   %h1.text-center
     小説一覧
+  .text-center.my-2
+    = link_to 'タイトル登録', new_novel_list_path, class: 'btn btn-primary'
   .novels.m-0-auto
     .row
       - @novel_lists.each do |novel_list|
@@ -28,5 +30,3 @@
                 = novel_list.user.name
           / %td= link_to 'Edit', edit_novel_list_path(novel_list)
           / %td= link_to 'Destroy', novel_list, method: :delete, data: { confirm: 'Are you sure?' }
-  .text-center.my-2
-    = link_to 'タイトル登録', new_novel_list_path, class: 'btn btn-primary'

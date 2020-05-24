@@ -49,6 +49,9 @@
         .swiper-pagination
         .swiper-button-prev
         .swiper-button-next
+  - if user_signed_in? && @novel_list.user_id == current_user.id
+    .owner_area.text-center
+      = link_to '削除', @novel_list, method: :delete, data: { confirm: '削除していいですか？' }, class: 'btn btn-danger'
 :javascript
   $(document).ready(function () {
     //initialize swiper when document ready

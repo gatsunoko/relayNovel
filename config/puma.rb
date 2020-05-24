@@ -10,9 +10,7 @@ threads min_threads_count, max_threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-if Rails.env == 'develop'
-  port        ENV.fetch("PORT") { 3000 }
-end
+port        ENV.fetch("PORT") { 3000 }
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
@@ -37,6 +35,4 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-if Rails.env == 'production'
-  bind "unix:///home/ec2-user/relayNovel/tmp/sockets/puma.sock" # socketの設定
-end
+bind "unix:///home/ec2-user/relayNovel/tmp/sockets/puma.sock" # socketの設定
