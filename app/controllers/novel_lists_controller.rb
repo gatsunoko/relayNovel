@@ -15,6 +15,11 @@ class NovelListsController < ApplicationController
     else
       @latest = true
     end
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render :show }
+    end
   end
 
   def new
