@@ -10,6 +10,9 @@
       .selected
         - @novel_list.novels.where(selected: true).order(number: :asc).each do |novel|
           .novel
+            .image.text-center
+              - if novel.image.present?
+                = image_tag novel.image.variant(resize_to_limit: [500, 500])
             %p
               = simple_format(sanitize(novel.text, tags: %w(p br)))
               .user
@@ -23,9 +26,11 @@
           = form.label 'テキスト'
           = form.text_area 'novel[text]', class: 'form-control col-12', onkeyup: "keyUp()", id: 'novel_text'
           %input{type:"text", id: "characnt", disabled: "disabled"}
+          .field
+            = form.file_field 'novel[image]', class: 'form-control col-xs-12 col-sm-10 col-md-10 col-lg-8'
         = form.hidden_field 'novel[novel_list_id]', value: @novel_list.id
         .actions.text-right.col-xs-12.col-sm-10.col-md-10.col-lg-8
-        = form.submit '投稿', class: 'btn btn-primary', id: 'submit'
+          = form.submit '投稿', class: 'btn btn-primary', id: 'submit'
     %button{class: 'btn btn-primary', id: 'nextButton', onclick: 'nextClick()'}
       続きを書く
   - if @latest
@@ -35,6 +40,9 @@
           - @novel_list.novels.where(selected: false).where(number: @max_number).each do |novel|
             .swiper-slide
               .novel
+                .image.text-center
+                  - if novel.image.present?
+                    = image_tag novel.image.variant(resize_to_limit: [500, 500])
                 %p
                   = simple_format(sanitize(novel.text, tags: %w(p br)))
                 = render 'novels/like', novel: novel

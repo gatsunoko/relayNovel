@@ -86,7 +86,7 @@ class NovelsController < ApplicationController
     end
 
     def novel_params
-      params.require(:novel).permit(:text, :novel_list_id)
+      params.require(:novel).permit(:text, :novel_list_id, :image)
     end
 
     def is_mine
