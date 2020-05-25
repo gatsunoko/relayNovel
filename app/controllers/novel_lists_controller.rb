@@ -6,8 +6,8 @@ class NovelListsController < ApplicationController
   def index
     @novel_lists = NovelList.all.includes(:novels).order('novels.updated_at desc')
     respond_to do |format|
-      format.html { render :show }
-      format.json { render :show }
+      format.html { render :index }
+      format.json { render :index }
     end
   end
 
