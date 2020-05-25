@@ -4,7 +4,7 @@
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no'}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title RelayNovel
+    %title VoisinStory
     %script{:crossorigin => "anonymous", :integrity => "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", :src => "https://code.jquery.com/jquery-3.4.1.js"}
     = csrf_meta_tags
     = csp_meta_tag
@@ -17,6 +17,18 @@
     %script{:crossorigin => "anonymous", :integrity => "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", :src => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"}
     /swiper
     %link{:href => "https://unpkg.com/swiper/css/swiper.min.css", :rel => "stylesheet"}/
+    - if controller.controller_name == 'novel_list' && controller.action_name == 'show'
+      %meta{:content => "#{@novel_list.title}", :property => "og:title"}/
+      %meta{:content => "article", :property => "og:type"}/
+      %meta{:content => "#{@novel_list.novels[0].text}", :property => "og:description"}/
+      %meta{:content => "#{request.url}", :property => "og:url"}/
+      %meta{:content => "#{@novel_list.image}", :property => "og:image"}/
+    - else
+      %meta{:content => "VosinStory", :property => "og:title"}/
+      %meta{:content => "website", :property => "og:type"}/
+      %meta{:content => "みんなでつなげて続きを選ぶ小説サイト", :property => "og:description"}/
+      %meta{:content => "#{request.url}", :property => "og:url"}/
+      %meta{:content => "#{ENV['SITE_URL']}/#{image_path('ogp_img.jpg')}", :property => "og:image"}/
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light#navbar
       = link_to root_path, class: 'navbar-brand py-0' do
