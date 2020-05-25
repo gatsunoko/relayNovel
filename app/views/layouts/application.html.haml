@@ -22,7 +22,10 @@
       %meta{:content => "article", :property => "og:type"}/
       %meta{:content => "#{@novel_list.novels[0].text}", :property => "og:description"}/
       %meta{:content => "#{request.url}", :property => "og:url"}/
-      %meta{:content => "#{rails_representation_url(@novel_list.thumbnail.variant(resize_to_limit: [300, 300], strip: true).processed, disposition: :inline)}", :property => "og:image"}/
+      - if @novel_list.thumbnail.present?
+        %meta{:content => "#{rails_representation_url(@novel_list.thumbnail.variant(resize_to_limit: [300, 300], strip: true).processed, disposition: :inline)}", :property => "og:image"}/
+      - else
+        %meta{:content => "#{ENV['SITE_URL']}#{image_path('ogp_img.jpg')}", :property => "og:image"}/
     - else
       %meta{:content => "VosinStory", :property => "og:title"}/
       %meta{:content => "website", :property => "og:type"}/
