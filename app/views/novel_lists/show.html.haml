@@ -10,15 +10,15 @@
       .selected
         - @novel_list.novels.where(selected: true).order(number: :asc).each do |novel|
           .novel
+            %p
+              = simple_format(sanitize(novel.text, tags: %w(p br)))
             .image.text-center
               - if novel.image.present?
                 = image_tag novel.image.variant(resize_to_limit: [500, 500])
-            %p
-              = simple_format(sanitize(novel.text, tags: %w(p br)))
-              .user
-                = image_tag novel.user.image
-                %p
-                  = novel.user.name
+            .user
+              = image_tag novel.user.image
+              %p
+                = novel.user.name
   .container.form_area.text-center
     #form
       = form_with(url: novels_path, local: true, method: :post) do |form|
@@ -40,11 +40,11 @@
           - @novel_list.novels.where(selected: false).where(number: @max_number).each do |novel|
             .swiper-slide
               .novel
+                %p
+                  = simple_format(sanitize(novel.text, tags: %w(p br)))
                 .image.text-center
                   - if novel.image.present?
                     = image_tag novel.image.variant(resize_to_limit: [500, 500])
-                %p
-                  = simple_format(sanitize(novel.text, tags: %w(p br)))
                 = render 'novels/like', novel: novel
                 .user
                   = image_tag novel.user.image
