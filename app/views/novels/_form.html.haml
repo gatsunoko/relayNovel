@@ -9,7 +9,7 @@
           %li= message
   .field
     = form.label 'テキスト'
-    = form.text_area :text, class: 'form-control col-xs-12 col-sm-10 col-md-10 col-lg-8', onkeyup: "document.getElementById('characnt').value=200 - this.value.length"
+    = form.text_area :text, class: 'form-control col-xs-12 col-sm-10 col-md-10 col-lg-8', onkeyup: "document.getElementById('characnt').value=400 - this.value.length"
     %input{type:"text", id: "characnt", disabled: "disabled"}
   = form.hidden_field :novel_list_id, value: @novel.novel_list_id
   .actions.text-right.col-xs-12.col-sm-10.col-md-10.col-lg-8

@@ -21,11 +21,11 @@
       = form_with(url: novels_path, local: true, method: :post) do |form|
         .field
           = form.label 'テキスト'
-          = form.text_area 'novel[text]', class: 'form-control col-12', onkeyup: "document.getElementById('characnt').value=200 - this.value.length"
+          = form.text_area 'novel[text]', class: 'form-control col-12', onkeyup: "keyUp()", id: 'novel_text'
           %input{type:"text", id: "characnt", disabled: "disabled"}
         = form.hidden_field 'novel[novel_list_id]', value: @novel_list.id
         .actions.text-right.col-xs-12.col-sm-10.col-md-10.col-lg-8
-        = form.submit '投稿', class: 'btn btn-primary'
+        = form.submit '投稿', class: 'btn btn-primary', id: 'submit'
     %button{class: 'btn btn-primary', id: 'nextButton', onclick: 'nextClick()'}
       続きを書く
   - if @latest
@@ -51,7 +51,7 @@
         .swiper-button-next
   - if user_signed_in? && @novel_list.user_id == current_user.id
     .owner_area.text-center
-      = link_to '削除', @novel_list, method: :delete, data: { confirm: '削除していいですか？' }, class: 'btn btn-danger'
+      = link_to '小説を削除', @novel_list, method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger'
 :javascript
   $(document).ready(function () {
     //initialize swiper when document ready
