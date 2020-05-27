@@ -34,7 +34,6 @@
         margin-right: 15px;
       }
       .description {
-
         flex-grow: 2;
         .title {
           color: black;
@@ -62,6 +61,28 @@
             font-size: 14px;
             font-weight: bold;
           }
+        }
+      }
+      @media screen and (max-width: 782px) {
+        .thumbnail {
+          display: inline-block;
+          margin: 0;
+          width: 100%;
+          flex-grow: 0;
+        }
+        .description {
+          display: inline-block;
+          margin: 0;
+          width: 100%;
+          flex-grow: 0;
+        }
+      }
+    }
+    @media screen and (max-width: 782px) {
+      .novel {
+        display: inline-block;
+        .thumbnail {
+          text-align: center;
         }
       }
     }

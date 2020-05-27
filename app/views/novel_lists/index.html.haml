@@ -28,5 +28,3 @@
               = image_tag novel_list.user.image
               %p{class: 'name'}
                 = novel_list.user.name
-          / %td= link_to 'Edit', edit_novel_list_path(novel_list)
-          / %td= link_to 'Destroy', novel_list, method: :delete, data: { confirm: 'Are you sure?' }
