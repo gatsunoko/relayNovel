@@ -1,2 +1,15 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+= link_to '名前変更', edit_user_path(current_user.id)
+
+%p 通知
+.all_delete
+  = link_to '通知を全て削除', all_delete_notifications_path, data: { confirm: "全て削除してよろしいですか？" }
+- @user.notifications.where(checked: false).order(created_at: :desc).each do |notification|
+  - if notification.text_pattern == 0
+    .notification{:id => "notification#{notification.id}"}
+      = notification.post_user.name
+      さんが 
+      = link_to novel_list_path(notification.novel_list) do
+        = notification.novel_list.title
+      に書き込みました
+      = notification.created_at.strftime('%Y/%m/%d %H:%M:%S')
+      = link_to '削除', notification_path(notification.id), method: :delete, remote: true

@@ -12,5 +12,10 @@ Rails.application.routes.draw do
       get :like
     end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  resources :notifications, only: [:destroy] do
+    collection do
+      get :all_delete
+    end
+  end
 end

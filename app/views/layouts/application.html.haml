@@ -44,11 +44,14 @@
         %ul.navbar-nav
           -if user_signed_in?
             %li.nav-item
-              = link_to edit_user_path(current_user.id) do
-                .user
+              = link_to user_path(current_user.id) do
+                .my_profile
                   = image_tag current_user.image
-                  %p
+                  %p.name
                     = current_user.name
+                  - if current_user.notifications.count > 0
+                    %p.notification
+                      = current_user.notifications.count
             %li.nav-item
               = link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
           - else

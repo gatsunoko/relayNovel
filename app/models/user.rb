@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
+  has_many :notifications, dependent: :destroy
+  validates :name, presence: true
+
   def self.find_for_google(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user

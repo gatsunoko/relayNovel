@@ -1,0 +1,70 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  views:
+    pagination:
+      first:    "<<"
+      last:     ">>"
+      previous: "<"
+      next:     ">"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        zero: "<b>該当データがありません。</b>"
+        one: "<b>1件中 1-1 件を表示</b>"
+        display_entries: '1-%{count}件を表示中 / 合計%{count}件'
+      more_pages:
+        display_entries: '%{first}-%{last}件を表示中 / 合計%{total}件'
+    submit:
+      picture:
+        create: '登録'
+        update: '更新'
+      user:
+        create: 'ユーザー登録'
+        update: '更新'
+  activerecord:
+    models:
+      user: 'ユーザー'
+      picture: 'ヘアカタログ'
+    attributes:
+      user:
+        email: 'メールアドレス'
+        name: '名前'
+        profile: 'プロフィール'
+        picture: 'プロフィール写真'
+        password: 'パスワード'
+        password_confirmation: '確認用パスワード'
+        current_password: '現在のパスワード'
+      picture:
+        gender: '性別'
+        color: 'カラー'
+        length: '長さ'
+        text: 'アレンジポイント'
+        detail_count: '写真の枚数'
+      stylist:
+        shop_name: '店名'
+        shop_address: '住所'
+        shop_phone_number: '電話番号'
+    errors:
+      messages:
+        record_invalid: 'バリデーションエラー'

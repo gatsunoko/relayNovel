@@ -1,0 +1,4 @@
+var dom = document.getElementById("notification<%= @id %>");
+if (dom) {
+  dom.parentNode.removeChild(dom);
+}

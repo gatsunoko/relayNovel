@@ -39,6 +39,33 @@ html,body{
   transition: .3s;
   z-index: 9000;
 }
+  .my_profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+    }
+    p.name {
+      color: gray;
+      font-size: 14px;
+      padding: 0 5px 0 15px;
+      margin: 0;
+    }
+    p.notification {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      margin: 0;
+      background-color: red;
+      border-radius: 50px;
+    }
+  }
 #contents {
   padding-top: 56px;
 }
@@ -51,7 +78,7 @@ html,body{
 @media screen and (max-width: 991px) {
   .navbar {
     overflow: auto;
-    max-height: 95vh; // 必要に応じて
+    max-height: 95vh;
   }
 }
 /*基本*/

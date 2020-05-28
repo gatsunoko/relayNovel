@@ -33,6 +33,11 @@ class NovelsController < ApplicationController
 
     respond_to do |format|
       if @novel.save
+        Notification.create(user_id: novel_list.user_id,
+                            post_user_id: current_user.id,
+                            novel_list_id: novel_list.id,
+                            text_pattern: 0,
+                            checked: false)
         format.html { redirect_to novel_list_path(@novel.novel_list.id), notice: 'Novel was successfully created.' }
         format.json { render :show, status: :created, location: @novel }
       else
