@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_110147) do
     t.integer "post_user_id"
     t.integer "novel_list_id"
     t.integer "text_pattern"
-    t.boolean "checked"
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,3 +1,62 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.user_show {
+  max-width: 900px;
+  margin: 0 auto;
+  .black {
+    color: black;
+  }
+  .blue {
+    color: blue;
+  }
+  .notification {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+    }
+    .left_area {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      .description {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 15px 0 0;
+        @media screen and (max-width: 991px) {
+          flex-direction: column;
+        }
+        .notification_user {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+          }
+          p {
+            color: gray;
+            font-size: 14px;
+            padding: 0 0 0 15px;
+            margin: 0;
+          }
+        }
+      }
+      .time {
+        width: 100%;
+        text-align: right;
+        padding: 0 15px 0 0;
+      }
+    }
+    .right_area {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+}

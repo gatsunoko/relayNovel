@@ -5,7 +5,7 @@ class CreateNotifications < ActiveRecord::Migration[6.0]
       t.integer :post_user_id
       t.integer :novel_list_id
       t.integer :text_pattern
-      t.boolean :checked
+      t.boolean :checked, null: false, default: false
 
       t.timestamps
     end

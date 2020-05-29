@@ -50,7 +50,7 @@
                   %p.name
                     = current_user.name
                   - if current_user.notifications.count > 0
-                    %p.notification
+                    %p.notification_count
                       = current_user.notifications.count
             %li.nav-item
               = link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
