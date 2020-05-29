@@ -78,6 +78,17 @@ class NovelListsController < ApplicationController
     end
   end
 
+  def search
+    @keyword = params[:keyword].to_s 
+    @novel_lists = NovelList.where("title like ?", "%" + params[:keyword].to_s + "%")
+                            .includes(:novels)
+                            .order('novels.updated_at desc')
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :index }
+    end
+  end
+
   private
     def set_novel_list
       @novel_list = NovelList.find(params[:id])

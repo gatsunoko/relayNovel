@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'novel_lists#index'
-  resources :novel_lists
+  resources :novel_lists do
+    collection do
+      get :search
+    end
+  end
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     confirmations: 'users/confirmations',
                                     sessions: "users/sessions",
