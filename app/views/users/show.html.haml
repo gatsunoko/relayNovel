@@ -5,11 +5,11 @@
   .all_delete.my-2
     = link_to '通知を全て削除', all_delete_notifications_path, data: { confirm: "全て削除してよろしいですか？" }, class: 'btn btn-danger'
   - @user.notifications.where(checked: false).order(created_at: :desc).each do |notification|
-    - if notification.text_pattern == 0
-      .notification{:id => "notification#{notification.id}"}
-        .left_area
-          = link_to novel_list_path(notification.novel_list) do
-            .description
+    .notification{:id => "notification#{notification.id}"}
+      .left_area
+        = link_to novel_list_path(notification.novel_list) do
+          .description
+            - if notification.text_pattern == 0
               .notification_user
                 = image_tag notification.post_user.image
                 %p
@@ -17,13 +17,17 @@
                   %span{class: 'black'} さんが 
               %span{class: 'blue'}
                 = notification.novel_list.title
-              %span{class: 'black'} に書き込みました
-            .time
-              %span{class: 'black'}
-                = notification.created_at.strftime('%Y/%m/%d %H:%M:%S')
-        .right_area
-          .thumbnail.px-2
-            - if notification.novel_list.thumbnail.present?
-              = link_to novel_list_path(notification.novel_list) do
-                = image_tag notification.novel_list.thumbnail.variant(resize_to_limit: [200, 100])
-          = link_to '削除', notification_path(notification.id), method: :delete, remote: true, class: 'btn btn-danger'
+              %span{class: 'black'} に書き込みました。
+            - elsif notification.text_pattern == 1
+              %span{class: 'blue'}
+                = notification.novel_list.title
+              %span{class: 'black'} であなたの投稿が選ばれました。
+          .time
+            %span{class: 'black'}
+              = notification.created_at.strftime('%Y/%m/%d %H:%M:%S')
+      .right_area
+        .thumbnail.px-2
+          - if notification.novel_list.thumbnail.present?
+            = link_to novel_list_path(notification.novel_list) do
+              = image_tag notification.novel_list.thumbnail.variant(resize_to_limit: [200, 100])
+        = link_to '削除', notification_path(notification.id), method: :delete, remote: true, class: 'btn btn-danger'

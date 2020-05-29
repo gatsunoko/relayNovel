@@ -72,8 +72,17 @@ class NovelsController < ApplicationController
 
   def selected
     if list_is_mine
-      @novel.update(selected: true)
+      if @novel.update(selected: true)
+        if @novel.user_id != current_user.id
+          Notification.create(user_id: @novel.user_id,
+                              post_user_id: current_user.id,
+                              novel_list_id: @novel.novel_list.id,
+                              text_pattern: 1,
+                              checked: false)
+        end
+      end
     end
+
     redirect_to novel_list_path(@novel.novel_list)
   end
 
