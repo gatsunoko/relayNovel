@@ -1,3 +1,4 @@
+//= require_tree .
 //ナビバーを下にスクロールしたら消えて少しでも上にスクロールしたらだす
 $(window).on('load', function(){
   var menuHeight = 56;
