@@ -28,3 +28,6 @@
               = image_tag novel_list.user.image
               %p{class: 'name'}
                 = novel_list.user.name
+    .c_page_feed_select
+      %ul.p_flex
+        = paginate @novel_lists

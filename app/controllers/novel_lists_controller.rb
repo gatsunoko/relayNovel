@@ -4,7 +4,10 @@ class NovelListsController < ApplicationController
   before_action :is_mine, only: [:edit, :update, :destroy]
 
   def index
-    @novel_lists = NovelList.all.includes(:novels).order('novels.updated_at desc')
+    @novel_lists = NovelList.all
+                            .includes(:novels)
+                            .order('novels.updated_at desc')
+                            .page(params[:page])
     respond_to do |format|
       format.html { render :index }
       format.json { render :index }
@@ -24,6 +27,10 @@ class NovelListsController < ApplicationController
       @latest = true
     end
 
+    @novels = Novel.where("novel_list_id = ?", @novel_list.id)
+                   .where(selected: true)
+                   .order(number: :asc)
+                   .page(params[:page])
     respond_to do |format|
       format.html { render :show }
       format.json { render :show }

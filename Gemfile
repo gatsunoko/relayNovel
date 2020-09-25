@@ -37,6 +37,7 @@ gem 'impressionist', '~> 2.0'
 gem 'aws-sdk-s3', '~> 1.66'
 gem 'image_processing', '~> 1.11'
 gem 'whenever', '~> 1.0'
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
