@@ -5,8 +5,7 @@ class NovelListsController < ApplicationController
 
   def index
     @novel_lists = NovelList.all
-                            .includes(:novels)
-                            .order('novels.updated_at desc')
+                            .order(updated_at: :desc)
                             .page(params[:page])
     respond_to do |format|
       format.html { render :index }
@@ -31,6 +30,7 @@ class NovelListsController < ApplicationController
                    .where(selected: true)
                    .order(number: :asc)
                    .page(params[:page])
+                   .per(20)
     respond_to do |format|
       format.html { render :show }
       format.json { render :show }

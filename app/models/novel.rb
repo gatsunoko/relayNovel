@@ -1,5 +1,5 @@
 class Novel < ApplicationRecord
-  belongs_to :novel_list
+  belongs_to :novel_list, touch: true
   belongs_to :user
   has_many :likes, class_name: 'NovelLike', dependent: :destroy
 
