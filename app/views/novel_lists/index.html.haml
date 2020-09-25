@@ -28,6 +28,7 @@
               = image_tag novel_list.user.image
               %p{class: 'name'}
                 = novel_list.user.name
+    %p.pagenation_count.text-center= page_entries_info @novel_lists
     .c_page_feed_select
       %ul.p_flex
         = paginate @novel_lists

@@ -8,6 +8,7 @@ class NovelListsController < ApplicationController
                             .includes(:novels)
                             .order('novels.updated_at desc')
                             .page(params[:page])
+                            .per(2)
     respond_to do |format|
       format.html { render :index }
       format.json { render :index }
