@@ -31,6 +31,9 @@ class NovelListsController < ApplicationController
                    .order(number: :asc)
                    .page(params[:page])
                    .per(20)
+
+    session[:novel_id] = @novel_list.id
+    
     respond_to do |format|
       format.html { render :show }
       format.json { render :show }

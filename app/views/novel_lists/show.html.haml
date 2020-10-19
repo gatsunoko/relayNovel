@@ -35,8 +35,11 @@
         = form.hidden_field 'novel[novel_list_id]', value: @novel_list.id
         .actions.text-right.col-xs-12.col-sm-10.col-md-10.col-lg-8
           = form.submit '投稿', class: 'btn btn-primary', id: 'submit'
-    %button{class: 'btn btn-primary', id: 'nextButton', onclick: 'nextClick()'}
-      続きを書く
+    - if user_signed_in?
+      %button{class: 'btn btn-primary', id: 'nextButton', onclick: 'nextClick()'}
+        続きを書く
+    - else
+      = link_to '続きを書く', new_user_session_path(page_id: @novel_list.id), class: 'btn btn-primary'
   - if @latest
     .new_area
       .swiper-container
