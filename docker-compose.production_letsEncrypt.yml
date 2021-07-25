@@ -30,12 +30,11 @@ services:
     restart: always
   web:
     build:
-      context: ./docker/web
+      context: ./docker/web_letsEncrypt
     environment:
       TZ: Asia/Tokyo
     ports:
-      - '80:80'
-      - '443:443'
+      - '4000:4000'
     volumes:
       - ./log/nginx:/var/log/nginx
     depends_on:
@@ -48,7 +47,20 @@ services:
         max-file: '10'
     user: root
     restart: always
+  https-portal:
+    image: steveltn/https-portal:1.5.1
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      STAGE: production
+      DOMAINS: '${DOMAIN} -> http://web:4000'
+      CLIENT_MAX_BODY_SIZE: 50M
+    volumes:
+      - https-portal:/var/lib/https-portal
+    restart: always
 volumes:
   mysql-data:
     driver: local
   bundle_path:
+  https-portal:
