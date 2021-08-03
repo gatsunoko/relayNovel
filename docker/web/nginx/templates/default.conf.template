@@ -1,7 +1,7 @@
 server {
     listen 80;
     server_name ${DOMAIN};
-    root /GatsuRails/public;
+    root /relayNovel/public;
 
     try_files $uri/index.html $uri.html $uri @app;
 

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get :like
     end
   end
-  
+
   resources :notifications, only: [:destroy] do
     collection do
       get :all_delete
