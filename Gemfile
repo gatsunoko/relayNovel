@@ -35,7 +35,7 @@ gem 'omniauth-google-oauth2', '~> 0.8.0'
 gem 'counter_culture', '~> 1.8'
 gem 'impressionist', '~> 2.0'
 gem 'aws-sdk-s3', '~> 1.66'
-gem 'image_processing', '~> 1.11'
+gem 'image_processing', '~> 1.12'
 gem 'whenever', '~> 1.0'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
